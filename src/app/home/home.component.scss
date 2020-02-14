@@ -28,10 +28,16 @@
     margin-bottom: -6px;
     .navbar-nav {
       margin: 0 auto;
+      a {
+        width: 105px;
+        text-align: center;
+      }
       .nav-link {
+        display: inline-block;
+        margin-right: 120px;
         cursor: pointer;
         border: none;
-        font-size: 1.3rem;
+        font-size: 1rem;
         padding-top: 35px;
         padding-bottom: 15px;
         color: $secondary-color;
@@ -39,7 +45,7 @@
         border: none;
         // font-weight: 400;
         color: $secondary-color;
-        margin: 6px 30px;
+        margin: 6px 10px;
         &:hover,
         &:focus {
           background-color: $primary-color;
