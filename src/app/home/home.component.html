@@ -1,3 +1,105 @@
-<p>
-  home works!
-</p>
+<div class="top-bg"></div>
+<nav class="navbar navbar-expand-lg navbar-light tabs-nav nav-tabs">
+  <!-- <a class="navbar-brand" href="#">Navbar</a> -->
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto1 tabs-header">
+      <!-- <li class="nav-item active">
+        <a class="nav-link" href="#"
+          >Home <span class="sr-only">(current)</span></a
+        >
+      </li> -->
+      <li>
+        <a class="nav-link" (click)="selectGamesToPlay('top'); showme = false"
+          >Top Games</a
+        >
+      </li>
+      <li class="active">
+        <a class="nav-link" (click)="selectGamesToPlay('new'); showme = false"
+          >New Games</a
+        >
+      </li>
+      <li>
+        <a
+          class="nav-link slots"
+          (click)="selectGamesToPlay('slots'); showme = true"
+          >Slots</a
+        >
+      </li>
+      <li>
+        <a class="nav-link" (click)="onJackpot(); showme = false">Jackpots</a>
+      </li>
+      <li>
+        <a class="nav-link" (click)="selectGamesToPlay('live'); showme = false"
+          >Live</a
+        >
+      </li>
+      <li>
+        <a
+          class="nav-link"
+          (click)="selectGamesToPlay('blackjack'); showme = false"
+          >Blackjack</a
+        >
+      </li>
+      <li>
+        <a
+          class="nav-link"
+          (click)="selectGamesToPlay('roulette'); showme = false"
+          >Roulette</a
+        >
+      </li>
+      <li>
+        <a class="nav-link" (click)="selectGamesToPlay('table'); showme = false"
+          >Table</a
+        >
+      </li>
+      <li>
+        <a class="nav-link" (click)="selectGamesToPlay('poker'); showme = false"
+          >Poker</a
+        >
+      </li>
+      <li>
+        <a class="nav-link" (click)="otherCategory(); showme = false">Other</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="tabs-container">
+  <div class="tabs-content" *ngFor="let game of gamesToDisplay">
+    <img [src]="game.image" />
+
+    <div class="ribbon" *ngIf="game.categories[0] && showme">
+      <span>TOP</span>
+    </div>
+    <div class="ribbon" *ngIf="game.categories[2] && showme">
+      <span>NEW</span>
+    </div>
+
+    <span class="play">
+      <a href="#" class="round-button"><i class="fa fa-play fa-2x"></i></a>
+      <span class="show-games">{{ game.name }}</span>
+    </span>
+
+    <div class="jackport">
+      <span *ngIf="game.amount">
+        <span class="jackport-amount">£ {{ game.amount }}</span>
+      </span>
+    </div>
+  </div>
+
+  <div *ngIf="gamesToDisplay.length == 0">
+    <h1 class="available-games">No games available!</h1>
+  </div>
+</div>
