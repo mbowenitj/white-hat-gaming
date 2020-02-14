@@ -20,6 +20,5 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 
   ```bash
   $ npm install -g @angular/cli
-  $ npm install
   $ ng serve
   ```
